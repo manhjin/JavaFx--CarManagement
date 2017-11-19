@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="608.0" prefWidth="913.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.CarManagement.CarUI.OrderCar">
+   <children>
+      <JFXDatePicker fx:id="txtDate" editable="false" layoutX="104.0" layoutY="304.0" maxWidth="256.0" minWidth="256.0" prefHeight="29.0" prefWidth="256.0" promptText="Start Date" />
+      <Text layoutX="427.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order" wrappingWidth="58.4207763671875">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtCarName" disable="true" layoutX="104.0" layoutY="155.0" prefHeight="36.0" prefWidth="271.0" promptText="Car Name">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtCustomername" disable="true" layoutX="104.0" layoutY="227.0" prefHeight="36.0" prefWidth="271.0" promptText="Customer Name">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtHiredays" layoutX="104.0" layoutY="370.0" onKeyReleased="#txtPayHandle" prefHeight="36.0" prefWidth="271.0" promptText="Hire Days" />
+      <TextField fx:id="txtTotalmoney" disable="true" layoutX="104.0" layoutY="84.0" prefHeight="36.0" prefWidth="271.0" promptText="Total Money" />
+      <JFXCheckBox fx:id="cbPay" checkedColor="WHITE" layoutX="547.0" layoutY="79.0" onAction="#cbPayHandler" onKeyReleased="#cbPayHandler" prefHeight="46.0" prefWidth="256.0" style="-fx-background-color: #4189fc;" text="Pay Now" textFill="WHITE" unCheckedColor="BLACK" AnchorPane.leftAnchor="547.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXCheckBox>
+      <TextField fx:id="txtCardNum" disable="true" layoutX="547.0" layoutY="155.0" onKeyReleased="#txtValidate" prefHeight="46.0" prefWidth="263.0" promptText="Card Number" />
+      <TextField fx:id="txtCVV" disable="true" layoutX="547.0" layoutY="222.0" onKeyReleased="#txtValidate" prefHeight="46.0" prefWidth="95.0" promptText="CVV" />
+      <TextField fx:id="txtCardDate" disable="true" layoutX="687.0" layoutY="222.0" onKeyReleased="#txtValidate" prefHeight="46.0" prefWidth="95.0" promptText="MM/YY" />
+      <JFXButton fx:id="btnOrder" layoutX="649.0" layoutY="394.0" onAction="#btnOrderHandler" prefHeight="55.0" prefWidth="132.0" style="-fx-background-color: #4189fc;" text="Order" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnLiveChat" layoutX="649.0" layoutY="506.0" onAction="#btnChatHandle" prefHeight="46.0" prefWidth="132.0" style="-fx-background-color: red;" text="LIVE CHAT" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXColorPicker?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.validation.RequiredFieldValidator?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="763.0" prefWidth="953.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.CarManagement.AdminUI.AdminController">
+   <children>
+      <AnchorPane fx:id="pnOrderMan" layoutX="260.0" prefHeight="763.0" prefWidth="728.0" style="-fx-background-color: #fff;">
+         <children>
+            <TableView fx:id="OrderManTableView" layoutX="41.0" layoutY="58.0" onMouseClicked="#mouseClickedHandler" prefHeight="448.0" prefWidth="658.0">
+              <columns>
+                <TableColumn fx:id="ordID" prefWidth="75.0" text="OrderID" />
+                <TableColumn fx:id="ordCus" prefWidth="92.79998779296875" text="Customer" />
+                  <TableColumn fx:id="ordCar" prefWidth="76.800048828125" text="CarID" />
+                  <TableColumn fx:id="ordPrice" prefWidth="83.99993896484375" text="Total Price" />
+                  <TableColumn fx:id="ordDate" prefWidth="144.00006103515625" text="OrderDate" />
+                  <TableColumn fx:id="ordPay" prefWidth="92.0" text="Pay" />
+                  <TableColumn fx:id="ordStatus" prefWidth="94.39996337890625" text="Status" />
+              </columns>
+            </TableView>
+            <ButtonBar layoutX="155.0" layoutY="527.0" prefHeight="55.0" prefWidth="418.0" style="-fx-background-color: #fff;">
+              <buttons>
+                  <JFXButton fx:id="btnHiring" cancelButton="true" defaultButton="true" onAction="#actionViewTable" prefHeight="50.0" prefWidth="106.0" style="-fx-background-color: #4189fc;" text="All" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="btnFinish" cancelButton="true" defaultButton="true" minWidth="57.0" onAction="#actionViewTable" prefHeight="50.0" prefWidth="106.0" style="-fx-background-color: #4189fc;" text="Finished" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="btnCanceled" cancelButton="true" contentDisplay="TOP" defaultButton="true" minWidth="73.0" onAction="#actionViewTable" prefHeight="50.0" prefWidth="151.0" style="-fx-background-color: #4189fc;" text="Hiring" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </JFXButton>
+              </buttons>
+            </ButtonBar>
+            <JFXButton fx:id="btnEditOrder" layoutX="275.0" layoutY="677.0" onAction="#btnEditOrderHandler" prefHeight="50.0" prefWidth="177.0" ripplerFill="WHITE" style="-fx-background-color: #4189fc;" text="EDIT" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </JFXButton>
+            <JFXComboBox fx:id="cbCategory1" layoutX="280.0" layoutY="623.0" prefHeight="26.0" prefWidth="168.0" promptText="Status" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="pnCars" layoutX="263.0" prefHeight="763.0" prefWidth="698.0" style="-fx-background-color: #fff;">
+         <children>
+            <Label layoutX="273.0" layoutY="28.0" text="Manage All Cars">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TableView fx:id="carTableView" layoutX="22.0" layoutY="86.0" prefHeight="538.0" prefWidth="641.0">
+              <columns>
+                <TableColumn fx:id="carId" prefWidth="75.0" text="CarID" />
+                <TableColumn fx:id="carName" prefWidth="116.0" text="Name" />
+                  <TableColumn fx:id="carPrice" prefWidth="71.20001220703125" text="Price" />
+                  <TableColumn fx:id="carCate" prefWidth="87.199951171875" text="Category" />
+                  <TableColumn fx:id="carTotalStock" prefWidth="96.0" text="Total Stock" />
+                  <TableColumn fx:id="carAvailableStock" prefWidth="112.00006103515625" text="Available Stock" />
+                  <TableColumn fx:id="carColor" prefWidth="81.60000000000002" text="Color" />
+              </columns>
+            </TableView>
+            <JFXButton fx:id="btnView" layoutX="49.0" layoutY="661.0" onAction="#btnViewHandler" prefHeight="41.0" prefWidth="120.0" style="-fx-background-color: #4189fc;" text="View" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btnEditcar" layoutX="203.0" layoutY="661.0" onAction="#actionButtonHandler" prefHeight="41.0" prefWidth="120.0" style="-fx-background-color: #4189fc;" text="Edit" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btnAddnewcar" layoutX="357.0" layoutY="661.0" onAction="#actionButtonHandler" prefHeight="41.0" prefWidth="120.0" style="-fx-background-color: #4189fc;" text="Add new" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btnDelte" layoutX="512.0" layoutY="661.0" onAction="#actionButtonDeleteHandler" prefHeight="41.0" prefWidth="120.0" style="-fx-background-color: #4189fc;" text="Delete" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="pnCate" layoutX="260.0" prefHeight="763.0" prefWidth="728.0" style="-fx-background-color: #fff;">
+         <children>
+            <Label layoutX="256.0" layoutY="32.0" text="Manage All Category">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TableView fx:id="categoryTableView" layoutX="81.0" layoutY="101.0" prefHeight="329.0" prefWidth="398.0">
+              <columns>
+                <TableColumn fx:id="categoryId" prefWidth="75.0" text="Category ID" />
+                <TableColumn fx:id="categoryName" prefWidth="75.0" text="Cate Name" />
+                  <TableColumn fx:id="categoryDescription" prefWidth="247.199951171875" text="Description" />
+              </columns>
+            </TableView>
+            <Separator layoutX="26.0" layoutY="458.0" prefHeight="3.0" prefWidth="642.0" />
+            <JFXButton fx:id="btnAddnew" layoutX="562.0" layoutY="101.0" onAction="#btnAddNewHandle" prefHeight="41.0" prefWidth="99.0" style="-fx-background-color: #4189fc;" text="Add New" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btnEdit" layoutX="562.0" layoutY="173.0" onAction="#btnEditHandle" prefHeight="41.0" prefWidth="99.0" style="-fx-background-color: #4189fc;" text="Edit" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btnDelete" layoutX="562.0" layoutY="245.0" onAction="#btnDeleteHandle" prefHeight="41.0" prefWidth="99.0" style="-fx-background-color: red;" text="Delete" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXButton>
+            <Text layoutX="70.0" layoutY="499.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Category">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <TextField fx:id="txtCateName" disable="true" layoutX="182.0" layoutY="522.0" prefHeight="30.0" prefWidth="353.0" promptText="Category Name" />
+            <TextArea fx:id="txtDes" disable="true" layoutX="186.0" layoutY="572.0" prefHeight="91.0" prefWidth="347.0" promptText="Description" wrapText="true" />
+            <JFXButton fx:id="btnSave" layoutX="186.0" layoutY="686.0" onAction="#btnSaveHandle" prefHeight="41.0" prefWidth="118.0" style="-fx-background-color: #4189fc;" text="Save" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btnClear" layoutX="414.0" layoutY="686.0" onAction="#btnClearHandle" prefHeight="41.0" prefWidth="118.0" style="-fx-background-color: #4189fc #4189fc;" text="Clear" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="pnNewcar" layoutX="264.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="763.0" prefWidth="690.0" style="-fx-background-color: #fff;">
+         <children>
+            <Label layoutX="330.0" layoutY="37.0" text="Car">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtCarname" layoutX="150.0" layoutY="138.0" prefHeight="30.0" prefWidth="390.0" promptText="Car Name" />
+            <RequiredFieldValidator layoutX="382.0" layoutY="282.0" />
+            <TextField fx:id="txtPrice" layoutX="150.0" layoutY="279.0" prefHeight="30.0" prefWidth="198.0" promptText="Price" />
+            <FontAwesomeIcon iconName="DOLLAR" layoutX="320.0" layoutY="302.0" size="2em" wrappingWidth="19.65706968307495" />
+            <JFXComboBox fx:id="cbCategory" layoutX="370.0" layoutY="281.0" prefHeight="26.0" prefWidth="168.0" promptText="Category" />
+            <TextField fx:id="txtStock" layoutX="150.0" layoutY="204.0" prefHeight="30.0" prefWidth="198.0" promptText="Stock" />
+            <JFXColorPicker fx:id="txtColor" layoutX="254.0" layoutY="359.0" prefHeight="30.0" prefWidth="285.0" />
+            <Label alignment="CENTER" layoutX="150.0" layoutY="361.0" prefHeight="26.0" prefWidth="78.0" text="Color">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="btnBrowseImage" layoutX="150.0" layoutY="458.0" onAction="#btnBrowseImage" prefHeight="42.0" prefWidth="117.0" style="-fx-background-color: #4189fc;" text="Browse Image" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXButton>
+            <ImageView fx:id="lbImage" fitHeight="225.0" fitWidth="354.0" layoutX="320.0" layoutY="424.0" pickOnBounds="true" preserveRatio="true" />
+            <JFXButton fx:id="btnSavecar" layoutX="214.0" layoutY="674.0" onAction="#btnSaveCarHandler" prefHeight="41.0" prefWidth="106.0" style="-fx-background-color: #4189fc;" text="Save" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btnClearcar" layoutX="424.0" layoutY="674.0" prefHeight="41.0" prefWidth="106.0" style="-fx-background-color: #4189fc;" text="Clear" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXButton>
+            <TextField fx:id="txtavailablestock" disable="true" layoutX="370.0" layoutY="204.0" prefHeight="30.0" prefWidth="168.0" promptText="Available" />
+         </children>
+      </AnchorPane>
+      <Pane prefHeight="763.0" prefWidth="263.0" style="-fx-background-color: #4189fc;">
+         <children>
+            <Label fx:id="lblname" alignment="CENTER" layoutX="72.0" layoutY="24.0" prefHeight="41.0" prefWidth="120.0" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="btnCate" layoutX="33.0" layoutY="217.0" onAction="#actionButtonHandler" prefHeight="41.0" prefWidth="198.0" style="-fx-background-color: white;" text="Manage Category" />
+            <JFXButton fx:id="btnCar" layoutX="33.0" layoutY="297.0" onAction="#actionButtonHandler" prefHeight="41.0" prefWidth="198.0" style="-fx-background-color: white;" text="Manage Car" />
+            <JFXButton fx:id="btnComments" layoutX="33.0" layoutY="373.0" onAction="#actionButtonHandler" prefHeight="41.0" prefWidth="198.0" style="-fx-background-color: white;" text="Manage Comments" />
+            <Separator layoutX="14.0" layoutY="633.0" prefHeight="0.0" prefWidth="238.0" />
+            <JFXButton fx:id="btnOrderMan" layoutX="33.0" layoutY="445.0" onAction="#actionOrderMan" prefHeight="41.0" prefWidth="198.0" style="-fx-background-color: white;" text="Manage Order" />
+            <JFXButton fx:id="btnLiveChat" layoutX="34.0" layoutY="671.0" onAction="#btnServerChatHandle" prefHeight="41.0" prefWidth="198.0" style="-fx-background-color: red;" text="Live Chat" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </Pane>
+      <AnchorPane layoutX="265.0" prefHeight="763.0" prefWidth="722.0" style="-fx-background-color: #fff;">
+         <children>
+            <LineChart fx:id="reportChart" disable="true" layoutX="23.0" layoutY="179.0" prefHeight="317.0" prefWidth="675.0">
+               <xAxis>
+                  <CategoryAxis side="BOTTOM" />
+               </xAxis>
+               <yAxis>
+                  <NumberAxis prefHeight="176.0" prefWidth="35.0" side="LEFT" />
+               </yAxis>
+            </LineChart>
+            <Text layoutX="350.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="REPORT" />
+            <JFXDatePicker fx:id="txtStartDate" layoutX="68.0" layoutY="77.0" maxWidth="250.0" minWidth="250.0" prefHeight="28.0" prefWidth="250.0" promptText="Start Date" />
+            <JFXDatePicker fx:id="txtEndDate" layoutX="432.0" layoutY="77.0" maxWidth="250.0" minWidth="250.0" prefHeight="28.0" prefWidth="250.0" promptText="End Date" />
+            <JFXButton fx:id="btnLoad" layoutX="299.0" layoutY="130.0" onAction="#actionReportByDate" prefHeight="42.0" prefWidth="144.0" text="Load" />
+            <Label fx:id="lbMostCar" layoutX="93.0" layoutY="528.0" prefHeight="32.0" prefWidth="92.0" text="Label" />
+            <Label fx:id="lbMostCust" layoutX="346.0" layoutY="528.0" prefHeight="32.0" prefWidth="92.0" text="Label" />
+            <Label fx:id="lbPrice" layoutX="93.0" layoutY="566.0" prefHeight="73.0" prefWidth="227.0" text="Label">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

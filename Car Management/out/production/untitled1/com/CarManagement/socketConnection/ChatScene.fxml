@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="523.0" prefWidth="676.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.CarManagement.socketConnection.ChatController">
+   <children>
+      <TextArea fx:id="txtDisplay" editable="false" layoutX="43.0" layoutY="70.0" prefHeight="318.0" prefWidth="596.0" />
+      <TextField fx:id="txtInput" layoutX="43.0" layoutY="430.0" prefHeight="26.0" prefWidth="448.0" />
+      <JFXButton fx:id="btnsend" layoutX="527.0" layoutY="431.0" onAction="#sendMessageHandle" text="Send" />
+      <JFXButton fx:id="btnConnect" layoutX="50.0" layoutY="14.0" onAction="#btnConnectHandle" text="Connect" />
+   </children>
+</AnchorPane>

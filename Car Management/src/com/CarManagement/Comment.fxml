@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="441.0" prefWidth="651.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.CarManagement.Comment">
+   <children>
+      <TextField fx:id="txtCarID" editable="false" layoutX="156.0" layoutY="51.0" prefHeight="35.0" prefWidth="338.0" promptText="CarID" />
+      <TextArea fx:id="txtComment" layoutX="80.0" layoutY="107.0" onKeyReleased="#txtCommentValid" prefHeight="198.0" prefWidth="489.0" promptText="Input Your Comment Here" />
+      <JFXButton fx:id="btnSubmit" layoutX="252.0" layoutY="352.0" onAction="#btnSubmitHandler" prefHeight="35.0" prefWidth="146.0" style="-fx-background-color: #4189fc;" text="Submit" />
+   </children>
+</AnchorPane>
